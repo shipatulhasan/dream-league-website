@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football 2022</title>
+  <!-- fontawsome cdn -->
+  <script src="https://kit.fontawesome.com/59949b2abf.js" crossorigin="anonymous"></script>
+  <!-- Tailwind connection -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- link daisyUi -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+            orange: '#FF5E19'
+          },
+          
+          fontFamily: {
+            'swash': ['Berkshire Swash', 'cursive'],
+            'manrope': ['Manrope', 'sans-serif']
+          }
+
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Manrope:wght@400;600;700&display=swap');
+    </style>
+</head>
+
+<body class="bg-[#191919]">
+  <header>
+   <section class="bg-black">
+     <div class="mx-auto">
+       <div class="grid grid-cols-12 items-center gap-5 ">
+         <div class="col-start-1 col-span-3">
+           <img src="./img/hero-image.png" alt="" srcset="">
+         </div>
+         <div class=" bg-black text-center col-span-full md:col-start-4 md:col-span-6 mx-auto px-2">
+           <h2 class="text-white text-3xl md:text-6xl font-swash text-orange font-bold">
+            Select Your Best Five<br><img class="ml-auto w-1/3" src="./img/white-line.png" alt="" srcset=""> 
+           </h2>
+           <p class="text-white block text-sm md:text-base">
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+           </p>
+         </div>
+         <div class="ml-auto md:-mb-5 col-end-13 col-span-3 ">
+          <img src="./img/football-card.png" alt="" srcset="">
+
+         </div>
+       </div>
+     </div>
+
+   </section>
+  </header>
+  <main class="container mx-auto p-5 pt-20">
+    <section class="grid grid-cols-2 lg:grid-cols-2 gap-5">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+        <!-- player-1 -->
+        <div class="card card-compact rounded-none border-[1px] border-slate-600 bg-black w-full shadow-xl text-center pb-3">
+          <img src="./img/messi.png" alt="Shoes" />
+          <div class="card-body space-y-2 ">
+            <h2 class="title text-gray-100 text-xl font-manrope font-bold">Lionel Messi</h2>
+            <p class="text-sm text-gray-400">36 Goals . 120 Assist</p>
+            <button class="py-2 bg-blue-600 text-slate-100 text-sm" >Select player</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2>
+
+        </h2>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
