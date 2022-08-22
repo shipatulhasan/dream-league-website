@@ -1,5 +1,6 @@
 
 const ul = document.getElementById('items')
+const players = []
 
 // select team member by click select button
 const selections =  document.getElementsByClassName('select-player')
@@ -10,10 +11,15 @@ for(select of selections){
         const playerName = cardBody.querySelector('.title').innerText
         mySelection(playerName,selectBtn)
 
-       
-       
+        const obj = {
+            name:playerName,
+            btn:selectBtn
+        }
+        players.push(obj) 
+
     })
 }
+
 
 // get input value in number
 
@@ -42,13 +48,15 @@ function counter(){
     return count
 }
 
+// ceate team
+
 function mySelection(name,select){
     const selectBtn = select
     const count = counter()
 
     // disabled btn
     selectBtn.setAttribute('disabled',true)
-    selectBtn.className = 'bg-gray-300 py-2'
+    selectBtn.className = 'font-manrope font-bold bg-gray-300 py-2'
     const playerName = name
 
     // validation 
@@ -56,25 +64,36 @@ function mySelection(name,select){
     if(count >= 5){
         alert('you can\'t add more then five players')
         selectBtn.removeAttribute('disabled')
-        selectBtn.className='bg-blue-600 py-2 text-slate-100'
+        selectBtn.className = ('font-manrope font-bold py-2 bg-blue-600 text-slate-100 text-sm')
         return 
     }
 // show selected players
     const li = document.createElement('li')
-    li.innerText = playerName
+
+    li.innerHTML = `
+    <div class=" flex items-center justify-between">
+      ${playerName}
+      <i class="fa-solid fa-xmark text-orange hover:cursor-pointer"onclick="vanish(event)"></i>
+    </div>
+  `
     ul.appendChild(li)
 }
 
+// player expenses 
 
 document.getElementById('btn-calculate').addEventListener('click',function(){
     playerCost()
     
 })
 
+// total cost
+
 document.getElementById('btn-total-calculate').addEventListener('click',function(){
     totalCost()
 })
 
+
+// player cost
 function playerCost(){
     const budgetForPlayer = getInput('budget-per-player-field')
     const numberOfPlayers = counter()
@@ -89,6 +108,8 @@ function playerCost(){
 
 }
 
+// total cost calculate
+
 function totalCost(){
     const playerExpenses = playerCost()
     const managerCost = getInput('manager-field')
@@ -98,8 +119,24 @@ function totalCost(){
         return
     }
     const totalExpenses = playerExpenses + managerCost + coachCost
+    const subTotal = parseFloat(totalExpenses.toFixed(2))
     
 
-    displayValue('total-expense-display',totalExpenses)
+    displayValue('total-expense-display',subTotal)
     
 }
+
+// remove btn event
+
+function vanish(event){
+    const parent = event.target.parentNode.parentNode
+    const title = parent.innerText
+    for(const player of players){
+        if(player.name===title){
+            player.btn.removeAttribute('disabled')
+            player.btn.className =('font-manrope font-bold py-2 bg-blue-600 text-slate-100 text-sm')
+    }
+}
+ul.removeChild(parent)
+}
+
