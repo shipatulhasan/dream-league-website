@@ -20,6 +20,10 @@ for(select of selections){
 function getInput(id){
     const inputField = document.getElementById(id)
     const inputNumber = parseFloat(inputField.value)
+    if(inputNumber < 0 || isNaN(inputNumber)){
+        alert('please provide a valid input')
+        return ''
+    }
     return inputNumber
 
 }
@@ -63,14 +67,39 @@ function mySelection(name,select){
 
 
 document.getElementById('btn-calculate').addEventListener('click',function(){
-    calculation()
+    playerCost()
+    
 })
 
-function calculation(){
-    const budgetForPlayer = getInput('budget-per-player')
+document.getElementById('btn-total-calculate').addEventListener('click',function(){
+    totalCost()
+})
+
+function playerCost(){
+    const budgetForPlayer = getInput('budget-per-player-field')
     const numberOfPlayers = counter()
+    if(isNaN(budgetForPlayer)){
+        return 0
+    }
+    const playerExpenses = Number((budgetForPlayer * numberOfPlayers).toFixed(2))
+    // display cost
 
-    const playerExpenses = budgetForPlayer * numberOfPlayers
     displayValue('player-expense-display',playerExpenses)
+    return playerExpenses
 
+}
+
+function totalCost(){
+    const playerExpenses = playerCost()
+    const managerCost = getInput('manager-field')
+    const coachCost = getInput('coach-field')
+
+    if(isNaN(playerExpenses) && isNaN(managerCost) || isNaN(coachCost)){
+        return ''
+    }
+
+    const totalExpenses = playerExpenses + managerCost + coachCost
+
+    displayValue('total-expense-display',totalExpenses)
+    
 }

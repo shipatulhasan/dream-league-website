@@ -138,8 +138,8 @@
 
           <!-- budget per player -->
           <div class="flex items-center justify-between space-x-4 mb-4">
-            <label for="budget-per-player" class="font-manrope text-slate-300 inline-block ">Per-player</label>
-            <input type="text" id="budget-per-player" placeholder="1000" class=" p-1 bg-transparent border-2 border-slate-300 text-slate-100 focus:outline-none rounded w-3/5">
+            <label for="budget-per-player-field" class="font-manrope text-slate-300 inline-block ">Per-player</label>
+            <input type="text" id="budget-per-player-field" placeholder="1000" class=" p-1 bg-transparent border-2 border-slate-300 text-slate-100 focus:outline-none rounded w-3/5">
           </div>
           <div class="block">
             <input id="btn-calculate" type="button" value="Calculate" class="py-2 w-full font-bold font-manrope bg-blue-600 rounded text-slate-100 hover:cursor-pointer ">
@@ -150,6 +150,27 @@
             </h4>
             <h4 class="text-yellow-500">
               $<span id="player-expense-display" >00</span>
+            </h4>
+          </div>
+
+          <!-- total calculation part -->
+          <div class="flex items-center justify-between space-x-4 mb-4">
+            <label for="manager-field" class="font-manrope text-slate-300 inline-block ">Manager</label>
+            <input type="text" id="manager-field" placeholder="2000" class=" p-1 bg-transparent border-2 border-slate-300 text-slate-100 focus:outline-none rounded w-3/5">
+          </div>
+          <div class="flex items-center justify-between space-x-4 mb-4">
+            <label for="coach-filed" class="font-manrope text-slate-300 inline-block ">Coach</label>
+            <input type="text" id="coach-field" placeholder="4000" class=" p-1 bg-transparent border-2 border-slate-300 text-slate-100 focus:outline-none rounded w-3/5">
+          </div>
+          <div class="block">
+            <input id="btn-total-calculate" type="button" value="Calculate total" class="py-2 w-full font-bold font-manrope bg-blue-600 rounded text-slate-100 hover:cursor-pointer ">
+          </div>
+          <div class="flex justify-between items-center">
+            <h4 class=" text-slate-300 space-x-3 font-manrope py-2">
+              Total
+            </h4>
+            <h4 class="text-yellow-500">
+              $<span id="total-expense-display" >00</span>
             </h4>
           </div>
           
