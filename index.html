@@ -131,19 +131,28 @@
           </ul>
         </div>
         <div class="bg-black space-y-4 p-6">
-          <h2 class="text-2xl text-center text-slate-300 font-bold font-manrope">
+          <h2 class="text-2xl text-center text-slate-300 font-bold font-manrope pb-5">
             Budget
             <img class="w-1/2 mx-auto" src="./img/orange-line.png" alt="" srcset="">
           </h2>
 
           <!-- budget per player -->
-          <div class="flex items-center justify-center space-x-4 mb-4">
+          <div class="flex items-center justify-between space-x-4 mb-4">
             <label for="budget-per-player" class="font-manrope text-slate-300 inline-block ">Per-player</label>
-            <input type="text" id="budget-per-player" placeholder="1000" class=" p-1 bg-transparent border-2 border-slate-300 text-slate-100 focus:outline-none rounded w-1/2">
+            <input type="text" id="budget-per-player" placeholder="1000" class=" p-1 bg-transparent border-2 border-slate-300 text-slate-100 focus:outline-none rounded w-3/5">
           </div>
           <div class="block">
-            <input id="btn-calculate" type="button" value="Calculate" class="py-2 w-full font-bold font-manrope bg-blue-600 rounded text-slate-100 my-3 hover:cursor-pointer ">
+            <input id="btn-calculate" type="button" value="Calculate" class="py-2 w-full font-bold font-manrope bg-blue-600 rounded text-slate-100 hover:cursor-pointer ">
           </div>
+          <div class="flex justify-between items-center">
+            <h4 class=" text-slate-300 space-x-3 font-manrope py-2">
+              Player Expenses 
+            </h4>
+            <h4 class="text-yellow-500">
+              $<span id="player-expense-display" >00</span>
+            </h4>
+          </div>
+          
         </div>
       </div>
     </section>

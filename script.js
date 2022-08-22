@@ -15,7 +15,21 @@ for(select of selections){
     })
 }
 
+// get input value in number
 
+function getInput(id){
+    const inputField = document.getElementById(id)
+    const inputNumber = parseFloat(inputField.value)
+    return inputNumber
+
+}
+// set value as inner text
+
+function displayValue(id,value){
+    const displayField = document.getElementById(id)
+    displayField.innerText = value
+
+}
 
 // count child element
 
@@ -53,9 +67,10 @@ document.getElementById('btn-calculate').addEventListener('click',function(){
 })
 
 function calculation(){
-    const budgetForPlayer = document.getElementById('budget-per-player')
+    const budgetForPlayer = getInput('budget-per-player')
     const numberOfPlayers = counter()
 
     const playerExpenses = budgetForPlayer * numberOfPlayers
+    displayValue('player-expense-display',playerExpenses)
 
 }
