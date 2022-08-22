@@ -22,7 +22,7 @@ function getInput(id){
     const inputNumber = parseFloat(inputField.value)
     if(inputNumber < 0 || isNaN(inputNumber)){
         alert('please provide a valid input')
-        return ''
+        return
     }
     return inputNumber
 
@@ -79,9 +79,9 @@ function playerCost(){
     const budgetForPlayer = getInput('budget-per-player-field')
     const numberOfPlayers = counter()
     if(isNaN(budgetForPlayer)){
-        return 0
+        return ''
     }
-    const playerExpenses = Number((budgetForPlayer * numberOfPlayers).toFixed(2))
+    const playerExpenses = parseFloat((budgetForPlayer * numberOfPlayers).toFixed(2))
     // display cost
 
     displayValue('player-expense-display',playerExpenses)
@@ -94,11 +94,11 @@ function totalCost(){
     const managerCost = getInput('manager-field')
     const coachCost = getInput('coach-field')
 
-    if(isNaN(playerExpenses) && isNaN(managerCost) || isNaN(coachCost)){
-        return ''
+    if(isNaN(managerCost) || isNaN(coachCost)){
+        return
     }
-
     const totalExpenses = playerExpenses + managerCost + coachCost
+    
 
     displayValue('total-expense-display',totalExpenses)
     
